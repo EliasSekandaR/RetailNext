@@ -1,0 +1,90 @@
+You need to modify the existing web application to implement role-based access control with three roles: Admin, Manager, and Employee. The application should support the following features, permissions, and functionalities:
+
+General Requirements:
+Login Authentication: Implement login authentication, but no registration required. Only Admin can create Manager and Employee users. Managers can only create Employee users. All roles should have different permissions based on their access levels.
+
+Dark Mode Option: Add a dark mode toggle for the UI that allows users to switch between light and dark themes.
+
+Role Permissions:
+Admin Role:
+
+Full access to the application.
+
+Can perform CRUD operations on Products and Customers.
+
+Can create, read, update, delete customer profiles.
+
+Can create, update, delete orders.
+
+Full access to reporting (system-wide reports).
+
+Manage User Roles: Can create, update, delete, and assign roles (Admin, Manager, Employee).
+
+Full access to all settings and application features.
+
+Manager Role:
+
+Product CRUD: Can create, read, update products, but cannot delete products.
+
+Customer CRUD: Can create, read, update customer profiles, but cannot delete customer profiles.
+
+Can create, read, update, delete orders, but orders must have only two statuses: "pending" or "completed".
+
+No access to user roles: Cannot modify or manage user roles or permissions.
+
+Limited access to the reporting section (only reports related to orders and inventory).
+
+No access to application settings (e.g., tax rates, payment methods).
+
+Employee Role:
+
+No access to Product and Customer CRUD operations.
+
+Create Orders: Employees can only create orders, but the status of all created orders must default to "pending".
+
+No access to view or manage other users (Admin or Manager users).
+
+Limited access to the reporting section: Can view basic reports but not sensitive or system-wide data.
+
+No access to application settings.
+
+Fix the "Add to Order" button: The button currently does not work. Ensure that when clicked, the selected product is properly added to the order.
+
+Order creation should restrict the status to "pending" by default when created by an Employee.
+
+Order Functionality:
+The Order Status should have only two states: "pending" and "completed".
+
+Employee-created orders will default to "pending" status.
+
+Only Admin and Manager can update orders to "completed" status.
+
+Fix the "Add to Order" button: The existing version has a non-functional "Add to Order" button. Ensure the button allows users to add products to the order correctly.
+
+Customer Profile:
+Every customer must have a profile with an associated account balance.
+
+Each customer profile should record order transactions and loan history.
+
+Track the customer balance, transaction history, and loan details.
+
+Security:
+Implement authorization based on roles to ensure each user only has access to the features permitted for their role.
+
+For example, only Admins should manage users, and only Managers can manage orders.
+
+UI Changes:
+Implement a dark mode toggle to switch between light and dark themes.
+
+Implementation Details:
+Modify the authentication system to handle role-based login.
+
+Implement role checks using middleware or guards to restrict access to features based on the logged-in user's role.
+
+Update the orders section to ensure that the status only allows "pending" or "completed" states, and prevent employees from modifying orders.
+
+Fix the "Add to Order" button to allow users to add products to an order correctly.
+
+Implement functionality to display customer profiles, including account balances, transaction history, and loan details.
+
+Implement UI changes to support dark mode for the application.
